@@ -215,3 +215,39 @@ Tests:       1 failed, 1 total
 Snapshots:   0 total
 Time:        0.248 s, estimated 1 s
 ```
+
+### Routes 
+```
+/src
+- user
+- board
+- comment
+```
+
+```javascript
+test code part2
+const UserRepository = require("./user.repository");
+
+describe("UserRepository", () => {
+    it("UserRepository", () => {
+        expect(typeof UserRepository).toBe("function");
+    })
+
+    let a // beforeEach -> it 실행시마다 재실행
+    beforeEach(()=>{
+        a = 10
+    })
+
+    describe("addUser", () => {
+        it('[try] addUser check method',()=>{
+            a = 20
+            expect(a).toBe(20)
+        })
+
+        it("[catch] addUser method Error" ()=>{
+            expect(a).toBe(20)
+        })
+    })
+})
+
+```
