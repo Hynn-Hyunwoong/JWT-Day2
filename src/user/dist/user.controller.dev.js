@@ -57,3 +57,5 @@ function () {
 
   return UserController;
 }();
+
+module.exports = UserController;
