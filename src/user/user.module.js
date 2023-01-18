@@ -11,7 +11,7 @@ const JWT = require('../../lib/jwt');
 const crypto = require('crypto');
 
 
-const JWT = new JWT({ crypto });
+const jwt = new JWT({ crypto });
 
 const userRepository = new UserRepository({ User });
 const userService = new UserService({userRepository, jwt});
