@@ -159,3 +159,59 @@ app.listen(3000, async()=>{
 });
 ```
 
+5) create unit test
+create an test-code (unit test)
+test framework - Jest(made by Meta)
+```sh
+npm install -D jest node-mocks-http supertest
+```
+
+```sh
+package.json
+"start" : "node server",
+"test" : "jest"
+```
+
+JestRunner extension 
+particle run/Debug
+
+jwt.test.js
+```js
+const JWT = require('./jwt');
+const crypto = require('crypto');
+
+describe("lib/JWT.js", () => {
+    let jwt
+    it('constructor', () => {
+        expect(typeof JWT).toBe("function");
+        jwt = new JWT({crypto});
+        expect(typeof jwt.crypto).toBe("object")
+    });
+});
+```
+
+```result 
+ lib/JWT.js
+    ✕ constructor (3 ms)
+
+  ● lib/JWT.js › constructor
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "object"
+    Received: "undefined"
+
+       7 |         expect(typeof JWT).toBe("function");
+       8 |         jwt = new JWT({crypto});
+    >  9 |         expect(typeof jwt.crypto).toBe("object")
+         |                                   ^
+      10 |     });
+      11 | });
+
+      at Object.toBe (lib/jwt.test.js:9:35)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 total
+Snapshots:   0 total
+Time:        0.248 s, estimated 1 s
+```
